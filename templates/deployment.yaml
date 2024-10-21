@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "my-demo.fullname" . }}
+  labels:
+    app: {{ include "my-demo.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "my-demo.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "my-demo.name" . }}
+    spec:
+      containers:
+        - name: "{{ include "my-demo.name" . }}-nginx"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          
+
+

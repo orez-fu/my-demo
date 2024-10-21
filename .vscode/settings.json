@@ -1,0 +1,8 @@
+{
+  "yaml.schemas": {
+    "https://json.schemastore.org/yamllint.json": [
+      "file:///home/prime/devops17/my-demo/templates/deployment.yaml",
+      "file:///home/prime/devops17/my-demo/templates/service.yaml"
+    ]
+  }
+}
